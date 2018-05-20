@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        #nav{
+           list-style: none;
+            height: 30px;
+            border-bottom: 1px solid;
+        }
+        #nav li{
+            width: 120px;
+            height: 30px;
+            background: #cccccc;
+            float:left;
+            margin-right:5px;
+            text-align: center;
+            line-height:30px;
+            cursor:pointer;
+
+        }
+        #container{
+            border:1px solid;
+            width: 400px;
+            height: 300px;
+            margin:100px auto;
+        }
+        #nav .s{
+            background: #000;
+            color:#ffffff;
+        }
+        #content div{
+            display:none;
+        }
+        #content .s{
+            display:block;
+
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <ul id="nav">
+            <li class="s">html</li>
+            <li>css</li>
+            <li>js</li>
+        </ul>
+        <div id="content">
+            <div class="s">111</div>
+            <div>222</div>
+            <div>333</div>
+        </div>
+
+    </div>
+    <script>
+        var oNav=document.getElementById("nav");
+        var aLi=oNav.getElementsByTagName("li");
+        var oContent=document.getElementById("content");
+        var aDiv=oContent.getElementsByTagName("div");
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].xx=i;
+            aLi[i].onclick=function () {
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].className="";
+                    aDiv[i].className="";
+                }
+                this.className="s";
+                aDiv[this.xx].className="s";
+            }
+
+        }
+
+
+
+    </script>
+</body>
+</html>
