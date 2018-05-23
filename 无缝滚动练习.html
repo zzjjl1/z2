@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #ul1{
+            width: 440px;
+            position: absolute;
+        }
+        #ul1 li{
+            list-style:none;
+            width: 100px;
+            height: 100px;
+            background: #000;
+            color:#fff;
+            font-size: 50px;
+            text-align: center;
+            line-height:100px;
+            float:left;
+            margin-right:10px;
+        }
+        #fx{
+            position:absolute;
+            left:50%;
+            margin-left:-60px;
+            bottom:30px;
+        }
+        #fx span{
+            background: #ccc;
+            padding:10px;
+        }
+        #container{
+            height: 200px;
+            width: 320px;
+            border:1px solid #000;
+            margin:200px auto;
+            position:relative;
+            overflow: hidden;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="fx">
+        <span id="left">向左</span>
+        <span id="right">向右</span>
+    </div>
+</div>
+<script>
+    var oUl=document.getElementById('ul1');
+    var oLeft=document.getElementById('left');
+    var oRight=document.getElementById('right');
+    var speed=-5
+    oUl.innerHTML+=oUl.innerHTML;
+    oUl.style.width=oUl.offsetWidth*2+'px';
+
+    setInterval(function () {
+    oUl.style.left=oUl.offsetLeft+speed+'px';
+    if(oUl.offsetLeft<= -oUl.offsetWidth/2){
+        oUl.style.left=0;
+        }
+        if(oUl.offsetLeft>0){
+        oUl.style.left= -oUl.offsetWidth/2+'px';
+        }
+    },50)
+    oLeft.onmouseover = oRight.onmouseover=function(){
+        if(oLeft==this){
+            speed=-5;
+        }
+        else{
+            speed=5;
+        }
+
+    }
+
+
+
+
+</script>
+</body>
+</html>
