@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #container {
+            width: 520px;
+            height: 280px;
+            position: relative;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        #imgs {
+            width: 2080px;
+            height: 280px;
+            position:absolute;
+        }
+        #imgs img {
+            float:left;
+        }
+        #nav {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #nav li, #arrows span {
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            float: left;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        #arrows {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        #nav .selected {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="imgs">
+        <img src="5.jpg" alt="" class="selected">
+        <img src="6.jpg" alt="">
+        <img src="7.jpg" alt="">
+        <img src="8.jpg" alt="">
+    </div>
+    <ul id="nav">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="arrows">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+</div>
+<script src="jslib.js"></script>
+<script>
+    (function () {
+        var oNav = document.getElementById('nav');
+        var aLi = oNav.getElementsByTagName('li');
+        var oImgs = document.getElementById('imgs');
+        var aImg = oImgs.getElementsByTagName('img');
+        var oPrev = document.getElementById('prev');
+        var oNext = document.getElementById('next');
+        var oContainer = document.getElementById('container');
+        var iNowIndex = 0;
+        var timer;
+
+        oImgs.appendChild(aImg[0].cloneNode());
+        oImgs.style.width = aImg[0].offsetWidth * aImg.length + 'px';
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
+            aLi[i].onmouseover = function () {
+                iNowIndex = this.index;
+                changeImg();
+            }
+        }
+        oPrev.onselectstart = oNext.onselectstart = function () {
+            return false;
+        };
+        oPrev.onclick = oNext.onclick = function () {
+            if (this === oPrev) {
+                iNowIndex--;
+                if (iNowIndex == -1) {
+                    iNowIndex = aLi.length - 1;
+                    oImgs.style.left = -aImg[0].offsetWidth * aLi.length + 'px';
+                }
+            } else {
+                iNowIndex++;
+                if (iNowIndex == aLi.length + 1) {
+                    iNowIndex = 1;
+                    oImgs.style.left = 0;
+                }
+            }
+            changeImg();
+        };
+        oContainer.onmouseover = function () {
+            clearInterval(timer);
+        };
+        oContainer.onmouseout = function () {
+            play();
+        };
+        play();
+        function changeImg() {
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].className = '';
+            }
+            if (iNowIndex == 4) {
+                aLi[0].className = 'selected';
+            } else {
+                aLi[iNowIndex].className = 'selected';
+            }
+            animate(oImgs, {left: -iNowIndex * aImg[0].offsetWidth});
+        }
+
+        function play() {
+            timer = setInterval(function () {
+                oNext.onclick();
+            }, 1000);
+        }
+    })();
+
+
+
+</script>
+</body>
+</html>
+-->
