@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    body{
+        -webkit-perspective: 800px;
+        background: #000;
+    }
+    #cube{
+        width: 200px;
+        height: 200px;
+        margin:200px auto;
+        -webkit-transform-style: preserve-3d;
+        animation:run 2s linear infinite;
+    }
+    @keyframes run{
+        0%{
+
+        }
+        100%{
+            -webkit-transform:rotatey(360deg);
+        }
+    }
+    #cube div{
+        width: 200px;
+        height: 200px;
+        background:rgba(255,255,255,0.4);
+        font-size: 50px;
+        text-align: center ;
+        line-height:200px;
+        position: absolute;
+        border-radius:10px;
+    }
+    #cube div:nth-child(1){
+        -webkit-transform:rotatex(90deg) translatez(100px);
+
+    }
+    #cube div:nth-child(6){
+        -webkit-transform:rotatex(90deg) translatez(-100px);
+    }
+    #cube div:nth-child(2){
+        -webkit-transform:translatez(100px);
+
+    }
+    #cube div:nth-child(3){
+        -webkit-transform:rotatey(90deg) translatez(100px);
+
+    }
+    #cube div:nth-child(4){
+        -webkit-transform:rotatey(180deg) translatez(100px);
+    }
+    #cube div:nth-child(5){
+        -webkit-transform:rotatey(-90deg) translatez(100px);
+    }
+
+
+</style>
+<body>
+<div id="cube">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</div>
+
+</body>
+</html>
