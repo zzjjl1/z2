@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">click</button>
+<div id="content">
+    <script>
+
+        var oBtn=document.querySelector('#btn');
+        var oContent=document.querySelector('#content');
+        var obj={
+
+        };
+        oBtn.onclick=function () {
+            var arr=[];
+            for(var i=0;i<7;i++){
+                arr.push(Math.floor(Math.random()*34+1));
+            }
+            oContent.innerHTML = arr;
+            var num=Math.random();
+            location.hash=num;
+            obj[num]=arr;
+        };
+        window.onhashchange = function () {
+            var iHash = location.hash.substr(1);
+            if(obj[iHash]){//是否是有效值   非0 数字 非空字符串 非undefined 非null
+                oContent.innerHTML=obj[iHash];
+            }else{
+                oContent.innerHTML='';
+            }
+            o
+
+        }
+    </script>
+
+</body>
+</html>

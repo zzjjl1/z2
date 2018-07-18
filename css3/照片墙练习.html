@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        body,html{
+            height:100%;
+        }
+        #container{
+            height:100%;
+            background:url(img/bg.jpg);
+            position:relative;
+        }
+        .img-box{
+            height: 125px;
+            width: 125px;
+            border:5px solid #fff;
+            position:absolute;
+            left:-135px;
+            top:-135px;
+            transition: all 2s ease;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+
+</div>
+<script>
+    var oContainer=document.getElementById('container');
+    var count=0;
+    for(var i=0;i<24;i++){
+        var oImg=new Image();
+        oImg.onload=function () {
+            count++;
+            if(count==48){
+                loadSuccess();
+            }
+        };
+        oImg.src='img/thumbs/'+(i+1)+'.jpg'
+    };
+    for(var j=0;j<24;j++){
+        var oImg=new Image();
+        oImg.onload=function () {
+            count++;
+            if(count==48){
+                loadSuccess();
+            }
+        };
+        oImg.src='img/'+(j+1)+'.jpg'
+    };
+    var index=0;
+    function loadSuccess() {
+        for(var i=0;i<4;i++){
+            for(var j=0;j<6;j++){
+                index++;
+                var oDiv=document.createElement('div');
+                oDiv.className='img-box';
+                oContainer.appendChild(oDiv);
+                oDiv.pos={
+                    row:i,
+                    col:j
+                }
+                oDiv.style.background='url(img/thumbs/'+index+'.jpg)';
+            }
+        };
+        var spacex=(oContainer.offsetHeight-135*4)/5;
+        var spacey=(oContainer.offsetWidth-135*6)/7;
+        var aImg=document.getElementsByClassName('img-box');
+        for(i=0;i<24;i++){
+            aImg[i].style.webkitTransitionDelay=(24-i)*100+'ms';
+            aImg[i].style.left=(aImg[i].pos.col+1)*spacey+(aImg[i].pos.col)*135+'px';
+            aImg[i].style.top=(aImg[i].pos.row+1)*spacex+(aImg[i].pos.row)*135+'px';
+            aImg[i].style.webkitTransform='rotate('+(Math.random()*40-20)+'deg)';
+        }
+
+
+
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -47,8 +47,7 @@
         }else if(elem.attachEvent){
             elem.attachEvent('on'+type,handler);
         }else{
-            elem['on'+type]=function () {
-            }
+            elem['on'+type]=handler;
         }
 
     }

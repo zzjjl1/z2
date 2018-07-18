@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+        }
+        .dialog-mask{
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.5);
+            /*filter:alpha(opacity = 50);*/
+            position:fixed;
+            left: 0;
+            top:0;
+        }
+        .dialog-content{
+            width: 400px;
+            height: 500px;
+            position:absolute;
+            background: #fff;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%,-50%);
+        }
+        .dialog-close{
+            float:right;
+            margin:3px 5px 0 0;
+            background: #eee;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            cursor:pointer ;
+        }
+
+    </style>
+</head>
+<body>
+<script src="require.js" data-main="index"></script>
+<button id="btn">click</button>
+<!--<div class="dialog-mask">-->
+    <!--<div class="dialog-content">-->
+        <!--<div class="dialog-title">-->
+            <!--<span>登录</span>-->
+            <!--<span class="dialog-close">X</span>-->
+        <!--</div>-->
+        <!--<div class="dialog-body">-->
+            <!--aaaaadfasdgfag-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+</body>
+</html>

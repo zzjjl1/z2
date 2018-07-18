@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            height: 700px;
+            background: #ff0000;
+        }
+        #div2{
+            height: 700px;
+            background: #00ff00;
+        }
+        #div3{
+            height: 700px;
+            background: #0000ff;
+        }
+        #btn{
+            position:fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="btn">
+    <a href="#div1">div1</a>
+    <a href="#div2">div2</a>
+    <a href="#div3">div3</a>
+</div>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $('#btn a').on('click',function () {
+        var $ele=$(   $(this).attr('href')  );
+        $('html,body').animate({
+            scrollTop:$ele.offset().top
+        },1000);
+        return false;
+    });
+
+
+</script>
+</body>
+</html>

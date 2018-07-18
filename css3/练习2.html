@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        body{
+            background: #000;
+            -webkit-perspective: 800px;
+        }
+        #container{
+            height: 200px;
+            width: 200px;
+            margin: 200px auto;
+            position:relative;
+            -webkit-transform-style: preserve-3d;
+            animation: run 2s linear infinite;
+
+        }
+        @keyframes run {
+            0%{
+
+            }
+            100%{
+                transform: rotatey(360deg);
+            }
+        }
+        #container div{
+            width:200px;
+            height:200px;
+            background:rgba(255,255,255,0.4);
+            font-size: 50px;
+            text-align: center;
+            line-height: 200px;
+            border-radius:10px;
+            position:absolute;
+        }
+        #container div:nth-child(1){
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        #container div:nth-child(6){
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+        #container div:nth-child(2){
+            transform:rotatey(-90deg) translatez(100px);
+        }
+        #container div:nth-child(3){
+            transform:translatez(-100px) rotatey(180deg);
+        }
+        #container div:nth-child(4){
+            transform:rotatey(90deg) translatez(100px);
+        }
+        #container div:nth-child(5){
+            transform:translatez(100px);
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</div>
+
+
+</body>
+</html>

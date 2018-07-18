@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+            position:relative;
+        }
+        #container{
+            height: 100%;
+            background: url(img/bg.jpg);
+        }
+        .img-box{
+            width: 125px;
+            height: 125px;
+            border:5px solid #fff;
+            position:absolute;
+            left:0;
+            top:0;
+            -webkit-transition: all 2s ease;
+        }
+        .img-box span{
+            width: 125px;
+            height: 125px;
+            display:block;
+            opacity: 0;
+        }
+        #prev{
+            position:absolute;
+            left:0;
+            top:50%;
+            display: none;
+        }
+        #next{
+            position:absolute;
+            right:0;
+            top:50%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+</div>
+<img src="img/next.png" id=next alt="">
+<img src="img/prev.png" id="prev" alt="">
+<script>
+    var oContainer=document.getElementById('container');
+    var oPrev=document.getElementById('prev');
+    var oNext=document.getElementById('next');
+    var count=0;
+    for(var i=0;i<24;i++){
+        var oImg= new Image();
+        oImg.onload=function(){
+            count++;
+            if(count==48){
+                loadSuccess();
+            }
+        };
+        oImg.src='img/'+(i+1)+'.jpg';
+    };
+    for(var j=0;j<24;j++){
+        var oImg=new Image();
+        oImg.onload=function(){
+            count++;
+            if(count==48){
+                loadSuccess();
+            }
+        };
+        oImg.src='img/thumbs/'+(j+1)+'.jpg';
+    }
+
+    var index=0;
+    function loadSuccess() {
+        for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 6; j++) {
+                var oDiv = document.createElement('div');
+                oDiv.className = "img-box";
+                oDiv.pos = {
+                    row: i,
+                    col: j
+                };
+                oDiv.innerHTML = '<span></span>';
+                oDiv.idx = index;
+                index++;
+                oDiv.style.background = 'url(img/thumbs/' + index + '.jpg)';
+                oDiv.onclick = fn;
+                oContainer.appendChild(oDiv);
+            }
+        }
+        var spaceX = (oContainer.offsetWidth - 135 * 6) / 7;
+        var spaceY = (oContainer.offsetHeight - 135 * 4) / 5;
+        var aImg = document.getElementsByClassName('img-box');
+        for (i = 0; i < 24; i++) {
+            aImg[i].style.left = (aImg[i].pos.col + 1) * spaceX + aImg[i].pos.col * 135 + 'px';
+            aImg[i].style.top = (aImg[i].pos.row + 1) * spaceY + aImg[i].pos.row * 135 + 'px';
+            aImg[i].style.webkitTransform = 'rotate(' + (Math.random() * 40 - 20) + 'deg)';
+            aImg[i].style.webkitTransitionDelay = (24 - i) * 100 + 'ms';
+        }
+
+        var iTop = (oContainer.offsetHeight - 127 * 4) / 2;
+        var iLeft = (oContainer.offsetWidth - 127 * 6) / 2;
+        var aImg = document.getElementsByClassName('img-box');
+        var flag = true;
+
+        function fn() {
+            if (flag) {
+                for (var i = 0; i < 24; i++) {
+                    aImg[i].style.webkitTransform = 'rotate(0deg)';
+                    aImg[i].style.border = '1px solid #fff';
+                    aImg[i].style.webkitTransitionDelay = '0ms';
+                    aImg[i].style.left = aImg[i].pos.col * 127 + iLeft + 'px';
+                    aImg[i].style.top = aImg[i].pos.row * 127 + iTop + 'px';
+                    var aSpan = aImg[i].getElementsByTagName('span')[0];
+                    aSpan.style.opacity = 1;
+                    var x = aImg[i].pos.col * -125;
+                    var y = aImg[i].pos.row * -125;
+                    aSpan.style.background = 'url(img/' + (this.idx + 1) + '.jpg) ' + x + 'px ' + y + 'px';
+
+                }
+                oPrev.style.display = 'block';
+                oNext.style.display = 'block';
+                iNow=this.idx;
+            } else {
+                for (var i = 0; i < 24; i++) {
+                    var aSpan = aImg[i].getElementsByTagName('span')[0];
+                    aImg[i].style.left = (aImg[i].pos.col + 1) * spaceX + aImg[i].pos.col * 135 + 'px';
+                    aImg[i].style.top = (aImg[i].pos.row + 1) * spaceY + aImg[i].pos.row * 135 + 'px';
+                    aImg[i].style.webkitTransform = 'rotate(' + (Math.random() * 40 - 20) + 'deg)';
+                    aImg[i].style.border = '5px solid #fff';
+                    aSpan.style.webkitTransitionDelay='0ms';
+                    aSpan.style.opacity = 0;
+                }
+                oPrev.style.display = 'none';
+                oNext.style.display = 'none';
+            }
+            flag = !flag;
+        }
+        var aSpan = oContainer.getElementsByTagName('span');
+                oPrev.onclick=function(){
+                    iNow--;
+                    if(iNow==-1){
+                        iNow=23;
+                    }
+                    for (var i = 0; i < 24; i++) {
+                        aSpan[i].style.webkitTransitionDelay=+Math.random()*500+'ms';
+                        aSpan[i].style.backgroundImage = 'url(img/' + (iNow + 1) + '.jpg) ';
+                    }
+            };
+                oNext.onclick=function () {
+                    iNow++;
+                    if(iNow==24){
+                        iNow=0;
+                    }
+                    for(var i=0;i<24;i++){
+                        aSpan[i].style.webkitTransitionDelay=+Math.random()*500+'ms';
+                        aSpan[i].style.backgroundImage = 'url(img/' + (iNow + 1) + '.jpg) ';
+                    }
+
+                }
+
+    };
+
+</script>
+
+</body>
+</html>

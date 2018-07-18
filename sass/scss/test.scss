@@ -1,0 +1,42 @@
+$color:#f00;
+$a:'head';
+body{
+  background: $color;
+  width: 960px;
+}
+.#{$a}{
+  width: 10px;
+  background: url('#{$a}.jpg');
+}
+.header{
+  width: 1210px;
+  margin:0 auto;
+  .logo{
+    width: 100px;
+    height: 100px;
+    float:left;
+    a{
+      text-decoration: none;
+      &:hover{
+        color:#f00;
+      }
+    }
+  }
+}
+@mixin boder(){
+  border: 2px solid ;
+  box-shadow: 0 0 3px 4px rgba(0,0,0,.5);
+}
+.aa{
+  @include boder();
+}
+.bb{
+  @include boder();
+}
+%gg{
+  width: 200px;
+  height: 200px;
+}
+.hh{
+  @extend %gg;
+}

@@ -1,0 +1,237 @@
+#hearder{
+    height: 26px;
+    background: #f2f2f2;
+    color:#999;
+}
+#login-info{
+    height:100%;
+    width: 218px;
+    float:left;
+    font-size:12px;
+    line-height: 26px;
+}
+#quick-menu .menu{
+    float:left;
+    padding:0 15px;
+}
+
+#quick-menu {
+    height: 100%;
+    width: 600px;
+    float:right;
+}
+#quick-menu a{
+    font-size:12px;
+    line-height: 26px;
+    color:#999;
+}
+#login-info a{
+    color:#999;
+    margin-left: 15px;
+}
+#login-info a:hover{
+    color:red;
+}
+#quick-menu .menu-hd:hover >a{
+    color:red;
+}
+#quick-menu a:hover{
+    color:red;
+    text-decoration: underline;
+}
+#quick-menu .icon-gouwuchekong{
+    color:red;
+    font-size:12px;
+}
+#quick-menu .icon-shouji{
+    color:red;
+    gont-size:12px;
+}
+#quick-menu .icon-wangzhandaohang-copy-copy{
+    color:red;
+    gont-size:12px;
+}
+.menu-hd:hover{
+    background:#fff;
+
+}
+#quick-menu .triangle{
+    position:relative;
+}
+#quick-menu .triangle::after{
+    content:'';
+    width: 0;
+    border-style:solid;
+    border-width:3px ;
+    border-color:#bbb transparent transparent transparent;
+    position: absolute;
+    right:2px;
+    top:13px;
+    -webkit-transform-origin:3px 1.5px;
+    -moz-transform-origin:3px 1.5px;
+    -ms-transform-origin:3px 1.5px;
+    -o-transform-origin:3px 1.5px;
+    transform-origin:3px 1.5px;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+
+}
+#quick-menu li:hover::after{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: transform 0.2s ease;
+    -moz-transition: transform 0.2s ease;
+    -ms-transition: transform 0.2s ease;
+    -o-transition: transform 0.2s ease;
+    transition: transform 0.2s ease;
+}
+#quick-menu .menu-hd{
+    position:relative;
+}
+#quick-menu .submenu{
+    position: absolute;
+    left:0;
+    top:26px;
+    border:1px solid #999;
+    width: 100px;
+    text-align: center;
+    border-top:0;
+    display: none;
+}
+#quick-menu .menu:hover .submenu{
+    display: block;
+}
+#quick-menu .submenu1 li{
+    float:left;
+    margin-right: 20px;
+}
+#quick-menu .submenu2 li{
+    float:left;
+    margin-right: 20px;
+}
+#quick-menu .submenu1{
+    width: 142px;
+}
+#submenu0{
+    position: absolute;
+    right:0;
+    top:26px;
+    display: none;
+    border:1px solid #999;
+    border-top:0;
+}
+#quick-menu .menu:hover #submenu0{
+    display: block;
+}
+#quick-menu .submenu3{
+    width: 485px;
+}
+#quick-menu .submenu3 li{
+    float:left;
+    padding:6px 0;
+    width: 95px;
+}
+#quick-menu .submenu4{
+    width: 487px;
+}
+#quick-menu .submenu4 li{
+    float:left;
+    padding:6px 0;
+    width: 95px;
+}
+#quick-menu .submenu5{
+    width: 226px;
+}
+#quick-menu .submenu5 li{
+    float:left;
+    padding:6px 0;
+    width: 95px;
+}
+#submenu00{
+    width: 1200px;
+    height: 161px;
+    padding:10px;
+    position:absolute;
+    right:0;
+    top:26px;
+    display: none;
+    border:1px solid #999;
+    border-top:0;
+}
+#quick-menu .menu0 {
+    float:left;
+}
+#quick-menu .menu:hover #submenu00{
+    display: block;
+}
+#submenu00 .submenu3 h3{
+    color: #ed7d4e;
+}
+#submenu00 .submenu4 h3{
+    color:#06c8ec;
+}
+#search.logo1{
+    width: 290px;
+}
+
+#search .search-content{
+    width: 628px;
+    height: 81px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-33px;
+    margin-left:-314px;
+
+}
+#search .search-input{
+    border:2px solid #ff0036;
+}
+#search .search-input input[type="text"]{
+    width: 491px;
+    height: 36px;
+    outline:none;
+    border:0;
+    text-indent: 10px;
+}
+#search .search-input button{
+    width: 132px;
+    height: 36px;
+    background: #ff0033;
+    color:#ffffff;
+    border:none;
+    font-size:15px;
+    float:right;
+    cursor:pointer;
+}
+#search .wrapper{
+    position:relative;
+}
+#search .submenu6 li{
+    float:left;
+    width: 67px;
+    height: 15px;
+    font-size:15px;
+    border-right:1px solid #999;
+    text-align:center;
+    line-height: 15px;
+}
+#search .submenu6{
+    margin-top:5px;
+
+}
+#search .submenu6 li .reds{
+    color:red;
+}
+#search .submenu6 a{
+    color:#999;
+}
+#search .submenu6 .noline{
+    border-right:0;
+}

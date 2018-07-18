@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-
         *{
             margin:0;
             padding:0;
@@ -68,12 +67,12 @@
         var disX=e.clientX-oDrag.offsetWidth/2;
         var disY=e.clientY-oDrag.offsetHeight/2;
         if(disX>oSmall.offsetWidth-oDrag.offsetWidth){
-            disX=oSmall.offsetWidth-oDrag.offsetWidth;
+            disX=oSmall.offsetWidth-oDrag.offsetWidth
         }else if(disX<0){
             disX=0;
         }
-        if(disY>oSmall.offsetHeight-oDrag.offsetHeight){
-            disY=oSmall.offsetHeight-oDrag.offsetHeight;
+        if(disY>oSmall.offsetHeight-oDrag.tHeight){
+            disY=oSmall.offsetHeight-oDrag.offsetHeightoffse;
         }else if(disY<0){
             disY=0;
         }
@@ -86,7 +85,7 @@
         oBigImg.style.left=-xx+'px';
         oBigImg.style.top=-yy+'px';
     };
-    oSmall.onmouseout=function () {
+    oSmall.onmouseout=function() {
         oDrag.style.display='none';
         oBig.style.display='none';
     };

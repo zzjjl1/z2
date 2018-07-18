@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">click</button>
+<div id="content">
+    <script>
+
+        var oBtn=document.querySelector('#btn');
+        var oContent=document.querySelector('#content');
+        oBtn.onclick=function () {
+            var arr=[];
+            for(var i=0;i<7;i++){
+                arr.push(Math.floor(Math.random()*34+1));
+            }
+            oContent.innerHTML = arr;
+            history.pushState(arr,'');
+        };
+        window.onpopstate=function (e) {
+            oContent.innerHTML=e.state;
+            console.log(e.state);
+        }
+
+    </script>
+
+</body>
+</html>

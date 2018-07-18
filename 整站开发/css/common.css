@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style: none;
+}
+.header1{
+    width: 1280px;
+    height: 120px;
+    margin:0 auto;
+    overflow: hidden;
+    position:relative;
+}
+.logo{
+    margin-top:23px;
+}
+.header2 li{
+    float:left;
+    padding-left:26px;
+    padding-right:28px;
+}
+.header2 ul{
+    position:absolute;
+    right:318px;
+    top:53px;
+}
+.header2 li::after{
+    content: '';
+    height: 14px;
+    width: 1px;
+    background: #6b6b6b;
+}

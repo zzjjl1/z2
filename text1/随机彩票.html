@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">生成彩票</button>
+<div id="content">
+
+</div>
+<script>
+    var oBtn=document.getElementById('btn');
+    var oContent=document.getElementById('content');
+    var obj={
+
+    };
+
+    oBtn.onclick=function(){
+        var arr=[];
+        for(var i=0;i<7;i++){
+            arr.push(Math.floor(Math.random()*34+1));
+        }
+        oContent.innerHTML=arr;
+        var num=Math.random();
+        location.hash=num;
+        obj[num]=arr;
+    }
+    window.onhashchange = function () {
+        var iHash=location.hash.substr(1);
+        if(obj[iHash]){
+            oContent.innerHTML=obj[iHash];
+        }else{
+            oContent.innerHTML='完结'
+        }
+
+    }
+
+
+
+</script>
+
+</body>
+</html>

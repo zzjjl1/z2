@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">click</button>
+<div id="content">
+
+</div>
+<script>
+    var oContent=document.getElementById('content');
+    var oBtn=document.getElementById('btn');
+    var tags=new Array();
+    for(var i=0;i<35;i++){
+        tags.push(i+1);
+    }
+    oBtn.onclick=function(){
+        for(i=0;i<7;i++){
+            oContent.innerHTML=tags[parseInt(Math.random()*35)];
+        }
+    }
+
+</script>
+</body>
+</html>

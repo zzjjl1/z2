@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #ch1 li{
+        list-style: none;
+        float:right;
+        margin-right: 5px;
+        border:1px solid;
+        cursor:pointer;
+        position: relative;
+        right: 5px;
+        bottom: 50px;
+    }
+    #ch2 li{
+        list-style:none;
+        float:left;
+        cursor:pointer;
+        position: relative;
+        left: 10px;
+        bottom: 40px;
+    }
+    #xxx{
+        width: 520px;
+        height: 280px;
+        margin:200px auto;
+    }
+    #ch1 .cc1{
+        background: #00ff00;
+    }
+    .sss img {
+        display: none;
+    }
+
+</style>
+
+<body>
+<div id="xxx">
+    <ul>
+        <img src="5.jpg" alt="">
+        <img src="6.jpg" alt="">
+        <img src="7.jpg" alt="">
+        <img src="8.jpg" alt="">
+        </ul>
+    <ul id="ch2">
+        <li><</li>
+        <li>></li>
+    </ul>
+    <ul id="ch1">
+        <li class="cc1">4</li>
+        <li>3</li>
+        <li>2</li>
+        <li>1</li>
+    </ul>
+</div>
+
+<script>
+    var oCh1=document.getElementById('ch1');
+    var aLi=oCh1.getElementsByTagName('li');
+    var oXxx=document.getElementById('xxx');
+    var aImg=oXxx.getElementsByTagName('img');
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onmouseover=function(){
+            for(var i=0;i<aLi.length;i++) {
+                aLi[i].className="";
+            }
+            this.className="cc1";
+        };
+
+    }
+    for(var i=1;i<aLi.length;i++){
+        aLi[i].onclick=function(){
+        this.style.display='cc1';
+            }
+    }
+
+</script>
+</body>
+</html>

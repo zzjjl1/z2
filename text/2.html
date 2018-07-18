@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var age=window.prompt("请输入您的年龄!","");
+    age*=1;
+    if(isNaN(age)||!age){
+        alert("您输入的不是一个数字!");
+    }else if(age>0&&age<14){
+        alert('儿童');
+    }else if(age>=14&&age<24){
+        alert('青少年');
+    }else if(age>24&&age<40){
+        alert('青年');
+    }else if(age>=40&&age<60){
+        alert('中年');
+    }else if(age>=60){
+        alert('老年');
+    }
+
+</script>
+
+</body>
+</html>
