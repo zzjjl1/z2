@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <demo title="ha1">
+            <div slot="slot1">
+                <h3>3333</h3>
+                <h4>4444</h4>
+                <h5>5555</h5>
+            </div>
+            <div slot="slot2">
+                <h3>aaaa</h3>
+                <h4>bbbb</h4>
+                <h5>ccc7c</h5>
+            </div>
+        </demo>
+    </div>
+
+    <script src="vue.js"></script>
+    <script type="text/x-template" id="temp">
+        <div>
+            <h2>{{title}}</h2>
+            <p>
+                <slot name="slot1">
+                    <h1>默认值</h1>
+                </slot>
+            </p>
+            <div>
+                <slot name="slot2">
+                    <h1>默认值2</h1>
+                </slot>
+            </div>
+        </div>
+    </script>
+    <script>
+        // Vue.component('weichuang',{
+        //     template:'<div><h2>xxxxx</h2><p>aaa</p></div>'
+        // });
+        let vm = new Vue({
+            el: "#div1",
+            data: {
+
+            },
+            components: {
+                demo: {
+                    template: '#temp',
+                    props: ['title']
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            margin: 100px auto;
+            width: 500px;
+        }
+
+        #container h2 {
+            text-align: center;
+        }
+
+        .aa {
+            width: 500px;
+            height: 50px;
+            line-height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .aa input {
+            margin-left: 10px;
+        }
+
+        .div1 {
+            background: #ccffcc;
+        }
+
+        .num1 {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2>todolist</h2>
+        <hr>
+        <div id="hearder">
+            <label>
+                名称：
+                <input class="goodName" type="text" placeholder="请输入产品名称" v-model="name">
+            </label>
+            <label>
+                价格:
+                <input class="goodPrice" type="text" placeholder="0" v-model="price">
+            </label>
+            <button class="btn1" @click="add()">增加</button>
+            <div id="search">
+                <input class="goodSearch" type="text" placeholder="请输入搜索关键字">
+                <button class="btn2" @click="search()">查询</button>
+            </div>
+        </div>
+        <div id="content">
+            <div class="aa " v-for="(product,index) in proList" @click="change(product,index)" :class="{div1:product.isDiv1}">
+                <input type="checkbox" :value="index" v-model="check">
+                <span>[X]{{product.name}}</span>
+                <span class="num1">{{product.price}}</span>
+            </div>
+            <!-- <div class="aa div1">
+                <input type="checkbox">
+                <span>[X]裤子</span>
+            </div>
+            <div class="aa div1">
+                <input type="checkbox">
+                <span>[X]鞋</span>
+            </div> -->
+        </div>
+        <div id="footer">
+            <button class="btn3" @click="del()">删除选中</button>
+            总价:
+            <span class="totalPrice">{{sum()}}</span>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#container",
+            data: {
+                proList: [{
+                        name: '裤子',
+                        price: 11,
+                        isDiv1: false
+                    },
+                    {
+                        name: '衣服',
+                        price: 22,
+                        isDiv1: false
+                    },
+                    {
+                        name: '电脑',
+                        price: 3333,
+                        isDiv1: false
+                    },
+                    {
+                        name: 'iphoneX',
+                        price: 6666,
+                        isDiv1: false
+                    }
+                ],
+                name: '',
+                price: '',
+                check: [
+
+                ],
+                searchVal:''
+            },
+            methods: {
+                change(product, index){
+
+                    product.isDiv1 = !product.isDiv1;
+                    if (product.isDiv1) {
+                        this.check.push(index);
+                    } else {
+                        var idx = this.check.indexOf(index);
+                        this.check.splice(idx, 1);
+                    }
+                },
+                add(){
+                    var a = {
+                        name: this.name,
+                        price: this.price,
+                        isDiv1: false
+                    }
+                    this.proList.push(a);
+                },
+                sum(){
+                    var totalPrice = 0;
+                    this.proList.forEach(function (pro, idx) {
+                        if (pro.isDiv1) {
+                            pro.price = pro.price * 1;
+                            totalPrice += pro.price;
+                        }
+                    });
+                    return totalPrice;
+                },
+                del(){
+                    var newPro = this.proList.filter(function (product) {
+                        return (product.isDiv1 != true);
+                    });
+                    this.proList = newPro;
+                    this.check = [];
+                },
+                search(){
+                    let newPro = this.proList.filter((product) => {
+                        return product.name.includes(this.searchVal);
+                    });
+                    this.proList = newPro;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <ul>
+            <li v-for='val in arr'>{{val}}</li>
+        </ul>
+        <h2 v-for='(val,key) in obj'>{{key}}---{{val}}</h2>
+        <button v-on:click='show(10)'>click</button>
+        <div>{{num}}</div>
+
+    </div>
+    <script src='vue.js'></script>
+    <script>
+        var vm = new Vue({
+            el: "#div1",
+            data: {
+                arr: [1, 2, 3, 4, 5],
+                obj: {
+                    name: 'zs',
+                    age: '20',
+                    city: '北京'
+                },
+                num: 123456
+            },
+            methods: {
+                show(x) {
+                    this.num += x;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

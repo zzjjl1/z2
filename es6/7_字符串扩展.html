@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* var str = 'abcdefg';
+        console.log( str.startsWith('a'));
+        function sw(){
+
+
+        }
+        function ew(){
+
+
+        } */
+        String.prototype.ew = function(str){
+            if(this.lastIndexOf(str) + str.length == this.length){
+                return true;
+            }
+            return false;
+        }
+        var str1='abcdefg';
+        console.log(str1.ew('fg'));
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

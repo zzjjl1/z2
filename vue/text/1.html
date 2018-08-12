@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            margin: 100px auto;
+            width: 500px;
+        }
+
+        #container h2 {
+            text-align: center;
+        }
+
+        .aa {
+            width: 500px;
+            height: 50px;
+            line-height: 50px;
+            margin-bottom: 10px;
+            background: #ccc;
+        }
+
+        .aa input {
+            margin-left: 10px;
+        }
+
+        .se {
+            background: red;
+        }
+
+        .num1 {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2>todolist</h2>
+        <hr>
+        <div id="hearder">
+            <label>
+                名称：
+                <input class="goodName" type="text" placeholder="请输入产品名称">
+            </label>
+            <label>
+                价格:
+                <input class="goodPrice" type="text" placeholder="0">
+            </label>
+            <button class="btn1">增加</button>
+            <div id="search">
+                <input class="goodSearch" type="text" placeholder="请输入搜索关键字">
+                <button class="btn2">查询</button>
+            </div>
+        </div>
+        <div id="content">
+            <div class="aa">
+                <input type="checkbox">
+                <span>[X]衣服</span>
+                <span class="num1">100</span>
+            </div>
+            <div class="aa">
+                <input type="checkbox">
+                <span>[X]裤子</span>
+                <span class="num1">200</span>
+            </div>
+            <div class="aa">
+                <input type="checkbox">
+                <span>[X]鞋</span>
+                <span class="num1">300</span>
+            </div>
+        </div>
+        <div id="footer">
+            <button class="btn3">删除选中</button>
+            <span>总价:</span>
+        </div>
+    </div>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $('.btn1').on('click', function () {
+            var goodName = $('.goodName').val();
+            var goodPrice = $('.goodPrice').val();
+            $('#content').append(
+                '<div class="aa div2">' +
+                '<input type="checkbox">' +
+                '<span>[X]' + goodName + '</span>' +
+                '<span class="num1">' + goodPrice + '</span>' +
+                '</div>')
+        })
+        $('.btn3').on('click', function () {
+            $(':checked').parent().css('display', 'none');
+        })
+        // $(':checked').parent().css('background','red');
+        $('.btn2').on('click', function () {
+            var goodSearch = $('.goodSearch').val();
+            $('.aa').css('display', 'none');
+            $('span:contains(' + goodSearch + ')').parent().css('display', 'block');
+
+        })
+        $('#content').on('click', '.aa', function () {
+            if ($(this).hasClass('se')) {
+                $(this).removeClass('se').find('input').prop('checked',false) ;
+            } else {
+                $(this).addClass('se').find('input').prop('checked',true) ;
+            }
+           
+        })
+
+
+    </script>
+</body>
+
+</html>

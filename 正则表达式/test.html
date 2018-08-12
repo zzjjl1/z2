@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li class='bb'>1</li>
+        <li class='aa bb cc'>2</li>
+        <li class='b'>3</li>
+        <li class='ab'>4</li>
+    </ul>
+    <script>
+        // function getEleByclass(name){
+        //     var ele=document.getElementsByTagName('li');
+        //     var result=[];
+        //     for(var i=0;i<ele.length;i++){
+        //         var arr=ele[i].className.split(" ");
+        //         arr.forEach(function(str,index){
+        //             if(str=name){
+        //                 result.push(ele[i]);
+        //             }
+        //         });
+        //     }
+             
+        //     return result;
+        // }
+        // console.log(getEleByclass('bb'));
+
+
+        function getEleByclass(name){
+            var ele=document.getElementsByTagName('li');
+            var result=[];
+            for(var i=0;i<ele.length;i++){
+                var reg = new RegExp('\\b'+name+'\\b');
+                if(reg.test(ele[i].className)){
+                    result.push(ele[i]);
+                }
+            
+            }
+             
+            return result;
+        }
+        console.log(getEleByclass('bb'));
+       
+    </script>
+</body>
+</html>
